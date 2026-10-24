@@ -14,7 +14,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "broken_counter" {
+        "broken_warnings" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }

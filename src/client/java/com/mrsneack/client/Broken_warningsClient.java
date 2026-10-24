@@ -1,6 +1,5 @@
 package com.mrsneack.client;
 
-import com.mrsneack.client.modules.CommandManager;
 import com.mrsneack.client.modules.SaveManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.item.Item;
