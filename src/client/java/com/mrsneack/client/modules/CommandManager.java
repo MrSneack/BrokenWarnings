@@ -20,7 +20,7 @@ public class CommandManager {
     public LiteralArgumentBuilder<FabricClientCommandSource> register(String command) {
         return ClientCommandManager.literal(command)
                 .executes(context -> {
-                    context.getSource().sendFeedback(Text.translatable("commands.brokenwarnings.defaultConclusion").formatted(Formatting.GRAY).append("commands.brokenwarnings.defaultConclusion"));
+                    context.getSource().sendFeedback(Text.translatable("commands.brokenwarnings.testmessage").formatted(Formatting.GRAY).append(Text.translatable("commands.brokenwarnings.testmessage")));
                     return 1;
                 });
     }
