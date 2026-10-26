@@ -14,6 +14,7 @@ public class SaveManager {
     public static class BrokenWarningsData {
         public boolean debug = false;
     }
+    private final DebugTraceManager traceManager = new DebugTraceManager();
     private final Path path = FabricLoader.getInstance().getConfigDir().resolve("BrokenWarnings.json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -30,7 +31,7 @@ public class SaveManager {
                 gson.toJson(brokenWarningsData, writer);
             }
         } catch (IOException e) {
-            System.err.println("[BrokenWarnings] Failed to save");
+            traceManager.error("Error saving BrokenWarnings.json");
             e.printStackTrace();
         }
     }
@@ -55,7 +56,7 @@ public class SaveManager {
             }
         }
         catch (IOException e) {
-            System.err.println("[BrokenWarnings] Failed to load");
+            traceManager.error("Error loading BrokenWarnings.json");
             e.printStackTrace();
 
             brokenWarningsData = new  BrokenWarningsData();
