@@ -12,9 +12,6 @@
   "icon": "assets/broken_warnings/icon.png",
   "environment": "client",
   "entrypoints": {
-    "fabric-datagen": [
-      "com.mrsneack.client.Broken_warningsDataGenerator"
-    ],
     "client": [
       "com.mrsneack.client.Broken_warningsClient"
     ],
@@ -22,13 +19,6 @@
       "com.mrsneack.Broken_warnings"
     ]
   },
-  "mixins": [
-    "broken_warnings.mixins.json",
-    {
-      "config": "broken_warnings.client.mixins.json",
-      "environment": "client"
-    }
-  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
