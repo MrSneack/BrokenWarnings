@@ -6,3 +6,4 @@
 - Remove not used files
 - Fix crashs related to the old project name
 - Added separate class for Debug Trace and move all traces in here
+- Checking the item in the player’s hand has been moved to a separate class

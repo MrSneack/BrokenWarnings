@@ -14,6 +14,7 @@ public class SaveManager {
     public static class BrokenWarningsData {
         public boolean debug = false;
         public int durabilityPercentage = Math.max(5, 30);
+        public boolean isStopEnabled = false;
     }
     private final DebugTraceManager traceManager = new DebugTraceManager();
     private final Path path = FabricLoader.getInstance().getConfigDir().resolve("BrokenWarnings.json");
