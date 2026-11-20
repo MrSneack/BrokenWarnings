@@ -20,6 +20,6 @@ public class ItemDamageManager {
     }
     public int getDurabilityPercent() {
         item = init();
-        return (int)(item.getMaxDamage() - item.getDamage()) * 100 / item.getDamage();
+        return (int)(item.getMaxDamage() - item.getDamage()) * 100 / item.getMaxDamage();
     }
 }

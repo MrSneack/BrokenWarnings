@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "broken_warnings",
+  "id": "brokenwarnings",
   "version": "${version}",
   "name": "Broken Warnings",
   "description": "",
@@ -13,10 +13,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.mrsneack.client.Broken_warningsClient"
-    ],
-    "main": [
-      "com.mrsneack.Broken_warnings"
+      "com.mrsneack.client.BrokenWarningsClient"
     ]
   },
   "depends": {

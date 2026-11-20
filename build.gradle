@@ -14,7 +14,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "broken_warnings" {
+        "brokenwarnings" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
@@ -81,7 +81,7 @@ java {
 }
 
 jar {
-    from("LICENSE") {
+    from("LICENSE.txt") {
         rename { "${it}_${project.archives_base_name}" }
     }
 }
