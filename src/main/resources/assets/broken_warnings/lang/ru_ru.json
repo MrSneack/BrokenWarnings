@@ -1,3 +1,4 @@
 {
-  "commands.brokenwarnings.testmessage": "test"
+  "commands.brokenwarnings.status": "Broken Warnings запущен.",
+  "text.brokenwarnings.low_durability": "Низкая прочность: у предмета %s осталось %s."
 }
