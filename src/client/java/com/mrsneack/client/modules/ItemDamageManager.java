@@ -1,6 +1,7 @@
 package com.mrsneack.client.modules;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 
 public class ItemDamageManager {
@@ -8,10 +9,10 @@ public class ItemDamageManager {
 
     MinecraftClient client = MinecraftClient.getInstance();
 
-    ItemStack item = client.player.getMainHandStack();
-
+    ItemStack item = null;
     public ItemStack init() {
         if(client.player != null && client.world != null) {
+            item = client.player.getMainHandStack();
             if(!item.isEmpty() && item.isDamageable()) {
                 return item;
             }
@@ -20,6 +21,9 @@ public class ItemDamageManager {
     }
     public int getDurabilityPercent() {
         item = init();
-        return (int)(item.getMaxDamage() - item.getDamage()) * 100 / item.getMaxDamage();
+        if(item == null) {
+            return (int)(item.getMaxDamage() - item.getDamage()) * 100 / item.getMaxDamage();
+        }
+        return 0;
     }
 }

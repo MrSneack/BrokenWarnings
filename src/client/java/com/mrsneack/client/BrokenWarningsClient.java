@@ -4,6 +4,7 @@ import com.mrsneack.client.modules.DebugTraceManager;
 import com.mrsneack.client.modules.NotificationsManager;
 import com.mrsneack.client.modules.SaveManager;
 import net.fabricmc.api.ClientModInitializer;
+import net.minecraft.client.MinecraftClient;
 
 public class BrokenWarningsClient implements ClientModInitializer {
 
@@ -11,12 +12,20 @@ public class BrokenWarningsClient implements ClientModInitializer {
     private final DebugTraceManager traceManager = new DebugTraceManager();
     private final NotificationsManager notificationManager = new NotificationsManager();
     public static SaveManager.BrokenWarningsData config = saveManager.load();
+    public static MinecraftClient client =  MinecraftClient.getInstance();
 
     @Override
     public void onInitializeClient() {
+        if(saveManager.load().debug) {
+            traceManager.info("DEBUG ENABLED");
+        }
+
         traceManager.info("Initialize client");
         config = saveManager.load();
         traceManager.info("Loaded config");
-        notificationManager.init();
+        if(client.player != null & client.world != null) {
+            notificationManager.init();
+            traceManager.info("Loaded notifications");
+        }
     }
 }

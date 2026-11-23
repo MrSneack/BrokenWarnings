@@ -1,3 +1,5 @@
 {
-  "commands.brokenwarnings.testmessage": "test"
+  "commands.bk.testmessage": "test",
+  "text.bk.testmessage": "test",
+  "text.bk.testmessage_2": "test_2"
 }

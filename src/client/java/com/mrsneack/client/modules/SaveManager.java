@@ -12,7 +12,7 @@ import java.nio.file.Path;
 
 public class SaveManager {
     public static class BrokenWarningsData {
-        public boolean debug = false;
+        public boolean debug = true;
         public int durabilityPercentage = Math.max(5, 30);
         public boolean isStopEnabled = false;
     }
@@ -20,7 +20,7 @@ public class SaveManager {
     private final Path path = FabricLoader.getInstance().getConfigDir().resolve("BrokenWarnings.json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    private BrokenWarningsData brokenWarningsData;
+    private BrokenWarningsData brokenWarningsData = new BrokenWarningsData();
 
     public void save() {
         try {
@@ -34,7 +34,6 @@ public class SaveManager {
             }
         } catch (IOException e) {
             traceManager.error("Error saving BrokenWarnings.json");
-            e.printStackTrace();
         }
     }
 
@@ -59,14 +58,9 @@ public class SaveManager {
         }
         catch (IOException e) {
             traceManager.error("Error loading BrokenWarnings.json");
-            e.printStackTrace();
 
             brokenWarningsData = new  BrokenWarningsData();
             return brokenWarningsData;
         }
-    }
-
-    public BrokenWarningsData getBrokenWarningsData() {
-        return brokenWarningsData;
     }
 }
