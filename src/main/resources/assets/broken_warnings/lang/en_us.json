@@ -1,5 +1,4 @@
 {
-  "commands.bk.testmessage": "test",
-  "text.bk.testmessage": "test",
-  "text.bk.testmessage_2": "test_2"
+  "commands.brokenwarnings.status": "Broken Warnings is running.",
+  "text.brokenwarnings.low_durability": "Low durability: %s has %s remaining."
 }

@@ -1,3 +1,4 @@
 {
-  "commands.brokenwarnings.testmessage": "test"
+  "commands.brokenwarnings.status": "Broken Warnings ist aktiv.",
+  "text.brokenwarnings.low_durability": "Geringe Haltbarkeit: %s hat nur noch %s."
 }

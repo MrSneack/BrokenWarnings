@@ -1,3 +1,11 @@
+# Unreleased
+
+- Fixed durability percentage calculation and invalid-item handling
+- Registered client commands and durability checks during initialization
+- Prevented repeated low-durability notifications for the same item
+- Added safe recovery for malformed configuration files
+- Fixed logger message formatting and completed warning translations
+
 # V 0.1.0
 
 - Added a command system

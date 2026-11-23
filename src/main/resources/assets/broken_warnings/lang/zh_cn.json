@@ -1,3 +1,4 @@
 {
-  "commands.brokenwarnings.testmessage": "test"
+  "commands.brokenwarnings.status": "Broken Warnings 正在运行。",
+  "text.brokenwarnings.low_durability": "耐久度过低：%s 仅剩 %s。"
 }

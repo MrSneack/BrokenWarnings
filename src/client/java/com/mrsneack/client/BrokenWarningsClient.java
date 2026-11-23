@@ -1,31 +1,33 @@
 package com.mrsneack.client;
 
+import com.mrsneack.client.modules.CommandManager;
 import com.mrsneack.client.modules.DebugTraceManager;
 import com.mrsneack.client.modules.NotificationsManager;
 import com.mrsneack.client.modules.SaveManager;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 
-public class BrokenWarningsClient implements ClientModInitializer {
+public final class BrokenWarningsClient implements ClientModInitializer {
 
     public static final SaveManager saveManager = new SaveManager();
+    public static final SaveManager.BrokenWarningsData config = saveManager.load();
+
     private final DebugTraceManager traceManager = new DebugTraceManager();
     private final NotificationsManager notificationManager = new NotificationsManager();
-    public static SaveManager.BrokenWarningsData config = saveManager.load();
-    public static MinecraftClient client =  MinecraftClient.getInstance();
 
     @Override
     public void onInitializeClient() {
-        if(saveManager.load().debug) {
+        if (config.debug) {
             traceManager.info("DEBUG ENABLED");
         }
 
         traceManager.info("Initialize client");
-        config = saveManager.load();
-        traceManager.info("Loaded config");
-        if(client.player != null & client.world != null) {
-            notificationManager.init();
-            traceManager.info("Loaded notifications");
-        }
+
+        CommandManager.initialize();
+        traceManager.info("Registered client commands");
+
+        // Register during initialization; player/world become available later.
+        ClientTickEvents.END_CLIENT_TICK.register(notificationManager::tick);
+        traceManager.info("Registered durability notifications");
     }
 }
